@@ -1,0 +1,19 @@
+@layout('layouts.app')
+@section('content')
+  <div class="row mt-5">
+    <div class="col-sm-6 offset-sm-3">
+        @include('includes.notification')
+        <form action="/password/email" method="post">
+          {{ csrfField() }}
+          <div class="form-group">
+              <h2 class="text-center">Resetar Senha</h2>
+              <label for="email">E-mail</label>
+              <input type="email" class="form-control {{ hasErrorFor('email') ? 'is-invalid' : '' }}" id="email" name="email" value="{{ old('email', '')}}" placeholder="Informe seu e-mail" />
+              {{ elIf('<div class="invalid-feedback">$self</div>', getErrorFor('email'), hasErrorFor('email'))}}
+            </div>
+          <button type="submit" class="btn btn-primary">Enviar link para resetar senha</button>
+        </form>
+        <p class="mt-3"><a href="/login">Login</a></p>
+    </div>
+  </div>
+@endsection

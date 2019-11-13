@@ -1,0 +1,12 @@
+@layout('layouts.app')
+@section('content')
+<div class="container">
+	<div class="row mt-5">
+		<div class="col">
+			<p>
+			Bem vindo, <strong>{{auth.user.username}}</strong>.
+			</p>
+		</div>
+	</div>
+</div>
+@endsection
